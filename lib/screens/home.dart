@@ -1,38 +1,37 @@
 import 'package:flutter/material.dart';
+import 'package:liquor/modules/home_provider.dart';
+import 'package:provider/provider.dart';
 
-class LiquorMeTimbers extends StatefulWidget {
-  @override
-  State<StatefulWidget> createState() {
-    return LiquorMeTimbersState();
-  }
-}
-
-class LiquorMeTimbersState extends State<LiquorMeTimbers> {
-  int _selectedPage = 0;
-  final _pageOptions = [
-    Text('Item 1'),
-    Text('Item 2'),
-    Text('Item 3'),
-  ];
-
+class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.orange,
-      ),
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('Liquor Me Timbers!'),
+//    int _selectedPage = 0;
+    final _pageOptions = [
+      Text('Item 1'),
+      Text('Item 2'),
+      Text('Item 3'),
+    ];
+
+    return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        title: Text(
+          'Liquor Me Timbers!',
         ),
-        body: _pageOptions[_selectedPage],
-        bottomNavigationBar: BottomNavigationBar(
-          currentIndex: _selectedPage,
+      ),
+//      body: _pageOptions[_selectedPage],
+      body: _pageOptions[Provider.of<HomeNotifier>(context).selectedPage],
+      bottomNavigationBar:
+          Consumer<HomeNotifier>(builder: (context, homeNotifier, child) {
+        return BottomNavigationBar(
+//            currentIndex: selectedPage,
+          currentIndex: homeNotifier.selectedPage,
+
           onTap: (int index) {
-            setState(() {
-              _selectedPage = index;
-            });
+            homeNotifier.updateSelectedPage(index);
+//              setState(() {
+//                _selectedPage = index;
+//              });
           },
           items: [
             BottomNavigationBarItem(
@@ -48,8 +47,8 @@ class LiquorMeTimbersState extends State<LiquorMeTimbers> {
               title: Text('Profile'),
             ),
           ],
-        ),
-      ),
+        );
+      }),
     );
   }
 }
