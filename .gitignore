@@ -66,6 +66,7 @@ captures/
 .externalNativeBuild
 
 # Google Services (e.g. APIs or Firebase)
+/android/app/google-services.json
 google-services.json
 
 # Freeline
