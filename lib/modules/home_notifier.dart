@@ -7,5 +7,6 @@ class HomeNotifier with ChangeNotifier {
   int get selectedPage => _selectedPage;
   void updateSelectedPage(int index) {
     _selectedPage = index;
+    notifyListeners();
   }
 }
