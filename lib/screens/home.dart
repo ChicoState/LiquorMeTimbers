@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:liquor/modules/home_notifier.dart';
+import 'package:liquor/screens/stores.dart';
 import 'package:provider/provider.dart';
 
 class Home extends StatelessWidget {
@@ -8,7 +9,7 @@ class Home extends StatelessWidget {
 //    int _selectedPage = 0;
     final _pageOptions = [
       Text('Item 1'),
-      Text('Item 2'),
+      Stores(),
       Text('Item 3'),
     ];
 
