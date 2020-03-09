@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:liquor/modules/home_notifier.dart';
-import 'package:liquor/screens/stores.dart';
+import 'package:liquor/screens/bars.dart';
 import 'package:provider/provider.dart';
 
 class Home extends StatelessWidget {
@@ -9,7 +9,7 @@ class Home extends StatelessWidget {
 //    int _selectedPage = 0;
     final _pageOptions = [
       Text('Item 1'),
-      Stores(),
+      BarsPage(),
       Text('Item 3'),
     ];
 
@@ -42,7 +42,7 @@ class Home extends StatelessWidget {
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.local_bar),
-              title: Text('Stores'),
+              title: Text('Bars'),
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.account_box),

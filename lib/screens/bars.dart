@@ -1,17 +1,17 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
-class Stores extends StatefulWidget {
+class BarsPage extends StatefulWidget {
   @override
-  _StoresState createState() => _StoresState();
+  _BarsPageState createState() => _BarsPageState();
 }
 
-class _StoresState extends State<Stores> {
+class _BarsPageState extends State<BarsPage> {
   @override
   Widget build(BuildContext context) {
     return Container(
       child: StreamBuilder(
-        stream: Firestore.instance.collection('stores').snapshots(),
+        stream: Firestore.instance.collection('bars').snapshots(),
         builder: (context, snapshot) {
           if (!snapshot.hasData) return CircularProgressIndicator();
           return ListView.builder(
