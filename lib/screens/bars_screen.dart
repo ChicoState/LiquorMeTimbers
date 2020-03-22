@@ -23,6 +23,7 @@ class BarList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<Bar> bars = Provider.of<List<Bar>>(context);
+    if (bars == null) return Center(child: CircularProgressIndicator());
     return ListView.builder(
       itemCount: bars.length,
       itemBuilder: (context, index) => _buildListItem(context, bars[index]),
