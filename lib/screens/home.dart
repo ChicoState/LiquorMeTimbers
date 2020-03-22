@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:liquor/providers/home_notifier.dart';
-import 'package:liquor/screens/bars.dart';
+import 'package:liquor/screens/bars_screen.dart';
 import 'package:provider/provider.dart';
 
 class Home extends StatelessWidget {
