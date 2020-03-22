@@ -3,8 +3,10 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 class Bar {
   final String name;
   final Address address;
+  final Hours hours;
+  final Hours happyHours;
 
-  Bar({this.name, this.address});
+  Bar({this.name, this.address, this.hours, this.happyHours});
 
   factory Bar.fromFirestore(DocumentSnapshot documentSnapshot) {
     Map data = documentSnapshot.data;
@@ -12,16 +14,10 @@ class Bar {
     return Bar(
       name: data['name'] ?? '',
       address: Address.fromMap(data['address']),
+      hours: Hours.fromMap(data['hours']),
+      happyHours: Hours.fromMap(data['happy_hours']),
     );
   }
-
-//  factory Bar.fromMap(Map data) {
-//    data = data ?? {};
-//    return Bar(
-//      name: data['name'] ?? '',
-//      address: Address.fromMap(data['address']),
-//    );
-//  }
 }
 
 class Address {
@@ -38,6 +34,37 @@ class Address {
       state: data['state'] ?? '',
       street: data['street'] ?? '',
       zip: data['zip'] ?? '',
+    );
+  }
+}
+
+class Hours {
+  final String Sunday;
+  final String Monday;
+  final String Tuesday;
+  final String Wednesday;
+  final String Thursday;
+  final String Friday;
+  final String Saturday;
+
+  Hours(
+      {this.Sunday,
+      this.Monday,
+      this.Tuesday,
+      this.Wednesday,
+      this.Thursday,
+      this.Friday,
+      this.Saturday});
+
+  factory Hours.fromMap(Map data) {
+    return Hours(
+      Sunday: data['Sunday'] ?? '',
+      Monday: data['Monday'] ?? '',
+      Tuesday: data['Tuesday'] ?? '',
+      Wednesday: data['Wednesday'] ?? '',
+      Thursday: data['Thursday'] ?? '',
+      Friday: data['Friday'] ?? '',
+      Saturday: data['Saturday'] ?? '',
     );
   }
 }
