@@ -57,14 +57,28 @@ class Hours {
       this.Saturday});
 
   factory Hours.fromMap(Map data) {
-    return Hours(
-      Sunday: data['Sunday'] ?? '',
-      Monday: data['Monday'] ?? '',
-      Tuesday: data['Tuesday'] ?? '',
-      Wednesday: data['Wednesday'] ?? '',
-      Thursday: data['Thursday'] ?? '',
-      Friday: data['Friday'] ?? '',
-      Saturday: data['Saturday'] ?? '',
-    );
+    try {
+      return Hours(
+        Sunday: data['Sunday'] ?? '',
+        Monday: data['Monday'] ?? '',
+        Tuesday: data['Tuesday'] ?? '',
+        Wednesday: data['Wednesday'] ?? '',
+        Thursday: data['Thursday'] ?? '',
+        Friday: data['Friday'] ?? '',
+        Saturday: data['Saturday'] ?? '',
+      );
+    }
+    catch (e){
+      print(e);
+      return Hours(
+        Sunday: '',
+        Monday: '',
+        Tuesday: '',
+        Wednesday: '',
+        Thursday: '',
+        Friday: '',
+        Saturday: '',
+      );
+    }
   }
 }
