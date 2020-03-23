@@ -1,38 +1,38 @@
 import 'package:flutter/material.dart';
-import 'package:liquor/modules/home_notifier.dart';
-import 'package:provider/provider.dart';
 
-class Home extends StatelessWidget {
+class LiquorMeTimbers extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    return LiquorMeTimbersState();
+  }
+}
+
+class LiquorMeTimbersState extends State<LiquorMeTimbers> {
+  int _selectedPage = 0;
+  final _pageOptions = [
+    Text('Item 1'),
+    Text('Item 2'),
+    Text('Item 3'),
+  ];
+
   @override
   Widget build(BuildContext context) {
-//    int _selectedPage = 0;
-    final _pageOptions = [
-      Text('Item 1'),
-      Text('Item 2'),
-      Text('Item 3'),
-    ];
-
-    return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: Text(
-          'Liquor Me Timbers!',
-        ),
+    return MaterialApp(
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        primarySwatch: Colors.orange,
       ),
-//      body: _pageOptions[_selectedPage],
-      body: _pageOptions[Provider.of<HomeNotifier>(context).selectedPage],
-      bottomNavigationBar:
-          Consumer<HomeNotifier>(builder: (context, homeNotifier, child) {
-        return BottomNavigationBar(
-//            currentIndex: selectedPage,
-          currentIndex: homeNotifier.selectedPage,
-
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Liquor Me Timbers!'),
+        ),
+        body: _pageOptions[_selectedPage],
+        bottomNavigationBar: BottomNavigationBar(
+          currentIndex: _selectedPage,
           onTap: (int index) {
-            homeNotifier.updateSelectedPage(index);
-            print(homeNotifier.selectedPage);
-//              setState(() {
-//                _selectedPage = index;
-//              });
+            setState(() {
+              _selectedPage = index;
+            });
           },
           items: [
             BottomNavigationBarItem(
@@ -48,8 +48,8 @@ class Home extends StatelessWidget {
               title: Text('Profile'),
             ),
           ],
-        );
-      }),
+        ),
+      ),
     );
   }
 }
