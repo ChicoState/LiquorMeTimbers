@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:liquor/modules/home_notifier.dart';
-import 'package:liquor/screens/stores.dart';
+import 'package:liquor/screens/home/profile.dart';
+import 'package:liquor/screens/home/stores.dart';
 import 'package:provider/provider.dart';
+
 
 class Home extends StatelessWidget {
   @override
@@ -10,7 +12,7 @@ class Home extends StatelessWidget {
     final _pageOptions = [
       Text('Item 1'),
       Stores(),
-      Text('Item 3'),
+      Profile(),
     ];
 
     return Scaffold(
