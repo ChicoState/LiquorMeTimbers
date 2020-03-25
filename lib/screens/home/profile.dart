@@ -1,4 +1,3 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:liquor/services/auth.dart';
 
@@ -8,7 +7,6 @@ class Profile extends StatefulWidget {
 }
 
 class _ProfileState extends State<Profile> {
-
   final AuthService _auth = AuthService();
   @override
   Widget build(BuildContext context) {
@@ -18,8 +16,7 @@ class _ProfileState extends State<Profile> {
         onPressed: () async {
           await _auth.signOut();
         },
-      )
+      ),
     );
   }
 }
-

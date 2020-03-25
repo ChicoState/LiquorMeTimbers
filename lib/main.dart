@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:liquor/screens/home.dart';
+import 'package:liquor/screens/home/home.dart';
 import 'package:provider/provider.dart';
 
 import 'modules/home_notifier.dart';

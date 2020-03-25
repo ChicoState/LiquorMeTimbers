@@ -16,8 +16,10 @@ class _StoresState extends State<Stores> {
           if (!snapshot.hasData) return CircularProgressIndicator();
           return ListView.builder(
             itemCount: snapshot.data.documents.length,
-            itemBuilder: (context, index) =>
-                _buildListItem(context, snapshot.data.documents[index]),
+            itemBuilder: (context, index) => _buildListItem(
+              context,
+              snapshot.data.documents[index],
+            ),
           );
         },
       ),
