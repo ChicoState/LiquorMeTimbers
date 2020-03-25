@@ -25,6 +25,7 @@ dependencies:
   cupertino_icons: ^0.1.2
 
   cloud_firestore: ^0.13.4
+  firebase_auth: ^0.15.5+3
   provider: ^4.0.4
   intl: ^0.16.1
 
@@ -38,6 +39,10 @@ dev_dependencies:
 
 # The following section is specific to Flutter.
 flutter:
+  fonts:
+    - family: lobster
+      fonts:
+        - asset: fonts/Lobster-Regular.ttf
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
