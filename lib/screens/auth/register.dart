@@ -73,7 +73,7 @@ class _RegisterState extends State<Register> {
               SizedBox(height: 20.0),
               TextFormField(
                   decoration: InputDecoration(
-                    hintText: 'Email',
+                    hintText: 'Password',
                     fillColor: Colors.white,
                     filled: true,
                     enabledBorder: OutlineInputBorder(
