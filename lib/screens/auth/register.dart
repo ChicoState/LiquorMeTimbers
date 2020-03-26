@@ -24,7 +24,9 @@ class _RegisterState extends State<Register> {
       appBar: AppBar(
         backgroundColor: Colors.black,
         elevation: 0.0,
-        title: Text('Register'),
+        title: Text(
+            'Liquor Me Timbers',
+            style: TextStyle(fontFamily:'lobster')),
         actions: <Widget>[
           FlatButton.icon(
             icon: Icon(Icons.person),
@@ -66,7 +68,7 @@ class _RegisterState extends State<Register> {
               SizedBox(height: 20.0),
               TextFormField(
                   decoration: InputDecoration(
-                    hintText: 'Email',
+                    hintText: 'Password',
                     fillColor: Colors.white,
                     filled: true,
                     enabledBorder: OutlineInputBorder(
