@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:liquor/providers/home_notifier.dart';
-import 'package:liquor/screens/bars_screen.dart';
+import 'package:liquor/screens/home/bars_screen.dart';
 import 'package:liquor/screens/home/profile.dart';
 import 'package:provider/provider.dart';
 
