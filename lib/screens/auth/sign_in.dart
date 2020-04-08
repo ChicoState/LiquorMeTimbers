@@ -41,11 +41,14 @@ class _SignInState extends State<SignIn> {
           FlatButton.icon(
             icon: Icon(
               Icons.person,
+                color: Colors.white,
             ),
             label: Text(
               'Register',
+                style: TextStyle(
+                    color:Colors.white)
             ),
-            color: Colors.white,
+            color: Colors.black,
             onPressed: () {
               widget.toggleView();
             },
@@ -107,7 +110,7 @@ class _SignInState extends State<SignIn> {
                 height: 20.0,
               ),
               RaisedButton(
-                color: Colors.red[400],
+                color: Colors.red[900],
                 child: Text(
                   'Sign in',
                   style: TextStyle(
@@ -127,6 +130,18 @@ class _SignInState extends State<SignIn> {
                     }
                   }
                 },
+              ),
+              RaisedButton(
+                  color: Colors.black,
+                child: Text(
+                    'Use Without An Account',
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
+                ),
+                onPressed: () async {
+                  dynamic result = await _auth.signInAnon();
+                }
               ),
               SizedBox(
                 height: 12.0,
