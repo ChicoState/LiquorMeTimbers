@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:liquor/screens/home.dart';
+import 'package:liquor/models/user.dart';
+import 'package:liquor/screens/wrapper.dart';
+import 'package:liquor/services/auth.dart';
 import 'package:provider/provider.dart';
 
-import 'modules/home_notifier.dart';
+import 'providers/home_notifier.dart';
 
 void main() => runApp(LiquorMeTimbers());
 
@@ -14,13 +16,16 @@ class LiquorMeTimbers extends StatelessWidget {
         ChangeNotifierProvider(
           create: (_) => HomeNotifier(),
         ),
+        StreamProvider<User>.value(
+          value: AuthService().user,
+        ),
       ],
       child: MaterialApp(
         title: 'Flutter Demo',
         theme: ThemeData(
-          primarySwatch: Colors.orange,
+          primarySwatch: Colors.red,
         ),
-        home: Home(),
+        home: Wrapper(),
       ),
     );
   }
