@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:liquor/models/user.dart';
-import 'package:liquor/screens/wrapper.dart';
+import 'package:liquor/modules/user.dart';
+import 'package:liquor/modules/wrapper.dart';
 import 'package:liquor/services/auth.dart';
 import 'package:provider/provider.dart';
 
