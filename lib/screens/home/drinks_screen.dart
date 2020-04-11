@@ -2,13 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class DrinksPage extends StatelessWidget {
-  final List<String> selectionTitles = [
-    "By\nCategory",
-    "By\nBar",
-    "Most\nPopular",
-    "My\nFavorites",
-  ];
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -23,24 +16,36 @@ class DrinksPage extends StatelessWidget {
               mainAxisSpacing: 340,
               children: <Widget>[
                 drinksPage(
-                  selectionTitles.first,
-                  Colors.white,
-                  Colors.redAccent,
+                  title: "By\nCategory",
+                  titleColor: Colors.white,
+                  gridColor: Colors.redAccent,
+                  onPressed: () {
+                    // TODO change view appropriately
+                  },
                 ),
                 drinksPage(
-                  selectionTitles[1],
-                  Colors.white,
-                  Colors.orangeAccent,
+                  title: "By\nBar",
+                  titleColor: Colors.white,
+                  gridColor: Colors.orangeAccent,
+                  onPressed: () {
+                    // TODO change view appropriately
+                  },
                 ),
                 drinksPage(
-                  selectionTitles[2],
-                  Colors.black,
-                  Colors.greenAccent,
+                  title: "Most\nPopular",
+                  titleColor: Colors.black,
+                  gridColor: Colors.greenAccent,
+                  onPressed: () {
+                    // TODO change view appropriately
+                  },
                 ),
                 drinksPage(
-                  selectionTitles[3],
-                  Colors.black,
-                  Colors.yellowAccent,
+                  title: "My\nFavorites",
+                  titleColor: Colors.black,
+                  gridColor: Colors.yellowAccent,
+                  onPressed: () {
+                    // TODO change view appropriately
+                  },
                 ),
               ],
             ),
@@ -51,20 +56,28 @@ class DrinksPage extends StatelessWidget {
   }
 
   // displays the box in the CustomScrollView
-  Widget drinksPage(String title, Color textColor, Color gridColor) {
-    return Container(
-      padding: const EdgeInsets.all(8),
-      child: Center(
-        child: Text(
-          title,
-          textAlign: TextAlign.center,
-          style: TextStyle(
-            fontSize: 22,
-            color: textColor,
+  Widget drinksPage({
+    @required String title,
+    Color titleColor,
+    Color gridColor,
+    @required Function onPressed,
+  }) {
+    return InkWell(
+      onTap: onPressed,
+      child: Container(
+        padding: const EdgeInsets.all(8),
+        child: Center(
+          child: Text(
+            title,
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontSize: 22,
+              color: titleColor ?? Colors.white,
+            ),
           ),
         ),
+        color: gridColor ?? Colors.redAccent,
       ),
-      color: gridColor,
     );
   }
 }
