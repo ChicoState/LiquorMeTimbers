@@ -1,10 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:liquor/providers/home_notifier.dart';
-import 'package:liquor/screens/home/drinks_category.dart';
-import 'package:provider/provider.dart';
 
-class DrinksPage extends StatelessWidget {
+class DrinksCategory extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -19,16 +15,15 @@ class DrinksPage extends StatelessWidget {
               mainAxisSpacing: 340,
               children: <Widget>[
                 drinksPage(
-                  title: "By\nCategory",
+                  title: "Rum",
                   titleColor: Colors.white,
                   gridColor: Colors.redAccent,
                   onPressed: () {
-                    Provider.of<HomeNotifier>(context, listen: false)
-                        .updateDrinkPage(DrinksCategory());
+                    // TODO change view appropriately
                   },
                 ),
                 drinksPage(
-                  title: "By\nBar",
+                  title: "Whiskey",
                   titleColor: Colors.white,
                   gridColor: Colors.orangeAccent,
                   onPressed: () {
@@ -36,7 +31,7 @@ class DrinksPage extends StatelessWidget {
                   },
                 ),
                 drinksPage(
-                  title: "Most\nPopular",
+                  title: "Tequila",
                   titleColor: Colors.black,
                   gridColor: Colors.greenAccent,
                   onPressed: () {
@@ -44,7 +39,7 @@ class DrinksPage extends StatelessWidget {
                   },
                 ),
                 drinksPage(
-                  title: "My\nFavorites",
+                  title: "Vodka",
                   titleColor: Colors.black,
                   gridColor: Colors.yellowAccent,
                   onPressed: () {
