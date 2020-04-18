@@ -1,18 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:liquor/providers/home_notifier.dart';
-import 'package:liquor/screens/home/bars_screen.dart';
-import 'package:liquor/screens/home/drinks_screen.dart';
-import 'package:liquor/screens/home/profile.dart';
 import 'package:provider/provider.dart';
 
 class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final _pageOptions = [
-      DrinksPage(),
-      BarsPage(),
-      Profile(),
-    ];
+    final _pageOptions = Provider.of<HomeNotifier>(context).pageOptions;
 
     return Scaffold(
       backgroundColor: Colors.black,
@@ -25,6 +18,26 @@ class Home extends StatelessWidget {
             fontFamily: 'lobster',
           ),
         ),
+        actions: <Widget>[
+          Visibility(
+            visible: Provider.of<HomeNotifier>(context).visible,
+            child: Padding(
+              padding: const EdgeInsets.only(
+                right: 12.0,
+              ),
+              child: IconButton(
+                tooltip: 'Home',
+                icon: Icon(Icons.home),
+                onPressed: () {
+                  Provider.of<HomeNotifier>(
+                    context,
+                    listen: false,
+                  ).setHomeDrinkPage();
+                },
+              ),
+            ),
+          ),
+        ],
       ),
       body: Container(
         decoration: BoxDecoration(
