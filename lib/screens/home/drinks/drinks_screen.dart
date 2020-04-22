@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:liquor/providers/home_notifier.dart';
+import 'package:liquor/screens/home/drinks/drinks_by_bar.dart';
 import 'package:liquor/screens/home/drinks/drinks_category.dart';
 import 'package:provider/provider.dart';
 
@@ -24,7 +25,9 @@ class DrinksPage extends StatelessWidget {
                   gridColor: Colors.redAccent,
                   onPressed: () {
                     Provider.of<HomeNotifier>(context, listen: false)
-                        .updateDrinkPage(DrinksCategory());
+                        .updateDrinkPage(
+                      DrinksCategory(),
+                    );
                   },
                 ),
                 drinksPage(
@@ -32,7 +35,10 @@ class DrinksPage extends StatelessWidget {
                   titleColor: Colors.white,
                   gridColor: Colors.orangeAccent,
                   onPressed: () {
-                    // TODO change view appropriately
+                    Provider.of<HomeNotifier>(context, listen: false)
+                        .updateDrinkPage(
+                      DrinksByBar(),
+                    );
                   },
                 ),
                 drinksPage(
@@ -40,6 +46,7 @@ class DrinksPage extends StatelessWidget {
                   titleColor: Colors.black,
                   gridColor: Colors.greenAccent,
                   onPressed: () {
+                    // TODO show drinks based on popularity
                     // TODO change view appropriately
                   },
                 ),
@@ -48,6 +55,7 @@ class DrinksPage extends StatelessWidget {
                   titleColor: Colors.black,
                   gridColor: Colors.yellowAccent,
                   onPressed: () {
+                    // TODO add favorites functionality for authenticated users
                     // TODO change view appropriately
                   },
                 ),
