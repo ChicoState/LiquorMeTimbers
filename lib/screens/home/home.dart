@@ -41,10 +41,11 @@ class Home extends StatelessWidget {
       ),
       body: Container(
         decoration: BoxDecoration(
-            image: DecorationImage(
-          image: AssetImage('assets/images/drink3.png'),
-          fit: BoxFit.fitWidth,
-        )),
+          image: DecorationImage(
+            image: AssetImage('assets/images/drink3.png'),
+            fit: BoxFit.fitWidth,
+          ),
+        ),
         child: _pageOptions[Provider.of<HomeNotifier>(context).selectedPage],
       ),
       bottomNavigationBar: Consumer<HomeNotifier>(
