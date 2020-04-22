@@ -56,21 +56,41 @@ class Home extends StatelessWidget {
               homeNotifier.updateSelectedPage(index);
               print(homeNotifier.selectedPage);
             },
+            selectedItemColor: Colors.red[900],
+            unselectedItemColor: Colors.white,
             items: [
               BottomNavigationBarItem(
-                icon: Icon(Icons.local_bar, color: Colors.red[900]),
-                title: Text('Drinks', style: TextStyle(color: Colors.white)),
+                icon: Icon(
+                  Icons.local_bar,
+                ),
+                title: Text(
+                  'Drinks',
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
+                ),
               ),
               BottomNavigationBarItem(
-                icon: Icon(Icons.store, color: Colors.red[900]),
-                title: Text('Bars',
-                    style: TextStyle(
-                      color: Colors.white,
-                    )),
+                icon: Icon(
+                  Icons.store,
+                ),
+                title: Text(
+                  'Bars',
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
+                ),
               ),
               BottomNavigationBarItem(
-                icon: Icon(Icons.account_box, color: Colors.red[900]),
-                title: Text('Profile', style: TextStyle(color: Colors.white)),
+                icon: Icon(
+                  Icons.account_box,
+                ),
+                title: Text(
+                  'Profile',
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
+                ),
               ),
             ],
           );
