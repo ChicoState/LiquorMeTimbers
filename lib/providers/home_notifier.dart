@@ -3,7 +3,7 @@ import 'dart:collection';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:liquor/screens/home/bars_screen.dart';
-import 'package:liquor/screens/home/drinks_screen.dart';
+import 'package:liquor/screens/home/drinks/drinks_screen.dart';
 import 'package:liquor/screens/home/profile.dart';
 
 class HomeNotifier with ChangeNotifier {

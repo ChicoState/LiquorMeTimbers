@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:liquor/providers/home_notifier.dart';
-import 'package:liquor/screens/home/drinks_category.dart';
+import 'package:liquor/screens/home/drinks/drinks_category.dart';
 import 'package:provider/provider.dart';
 
 class DrinksPage extends StatelessWidget {
