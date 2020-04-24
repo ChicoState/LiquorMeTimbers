@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:liquor/models/user.dart';
+import 'package:liquor/services/db.dart';
 
 class AuthService {
 
@@ -43,6 +44,10 @@ class AuthService {
     try {
       AuthResult result = await _auth.createUserWithEmailAndPassword(email: email, password: password);
       FirebaseUser user = result.user;
+      List<String> favorite_bars;
+      List<String> favorite_drinks;
+      await UserFavorites(uid: user.uid).updateUserData(favorite_bars, favorite_drinks);
+
       return _userFromFirebaseUser(user);
     } catch(e) {
       print(e.toString());

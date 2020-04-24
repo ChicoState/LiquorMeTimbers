@@ -10,3 +10,18 @@ class DatabaseService {
         (list) => list.documents.map((doc) => Bar.fromFirestore(doc)).toList());
   }
 }
+
+class UserFavorites {
+
+  final String uid;
+  UserFavorites({ this.uid });
+
+  final CollectionReference userData = Firestore.instance.collection('userData');
+
+  Future updateUserData(List<String> favorite_bars, List<String> favorite_drinks) async {
+    return await userData.document(uid).setData({
+      'favorite_bars': favorite_bars,
+      'favorite_drinks' : favorite_drinks,
+    });
+  }
+}
