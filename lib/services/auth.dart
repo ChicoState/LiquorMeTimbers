@@ -46,10 +46,10 @@ class AuthService {
       AuthResult result = await _auth.createUserWithEmailAndPassword(
           email: email, password: password);
       FirebaseUser user = result.user;
-      List<String> favoriteBars;
-      List<String> favoriteDrinks;
-      await UserFavorites(uid: user.uid)
-          .updateUserData(favoriteBars, favoriteDrinks);
+
+      //create a new document for the user with the uid
+
+      await UserFavorites(uid: user.uid).updateFavorite('bar', 'bar', 'bar', 'bar', 'bar', 0);
 
       return _userFromFirebaseUser(user);
     } catch (e) {
