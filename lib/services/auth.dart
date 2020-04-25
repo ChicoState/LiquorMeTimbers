@@ -46,10 +46,17 @@ class AuthService {
       AuthResult result = await _auth.createUserWithEmailAndPassword(
           email: email, password: password);
       FirebaseUser user = result.user;
+      Map<String, String> bars = Map();
+      Map<String, String> drinks = Map();
 
       //create a new document for the user with the uid
-
-      await UserFavorites(uid: user.uid).updateFavorite('bar', 'bar', 'bar', 'bar', 'bar', 0);
+      UserData userData = UserData(uid: user.uid);
+      await userData.updateFavorite(
+        bars,
+        drinks,
+      );
+      // set user's email
+      await userData.updateUserEmail(email);
 
       return _userFromFirebaseUser(user);
     } catch (e) {

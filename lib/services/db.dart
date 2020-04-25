@@ -11,22 +11,31 @@ class DatabaseService {
   }
 }
 
-class UserFavorites {
-
+class UserData {
   final String uid;
-  UserFavorites({ this.uid });
+  UserData({this.uid});
 
   //collection reference
-  final CollectionReference favoriteList = Firestore.instance.collection('favorites');
+//  final CollectionReference favoriteList =
+//      Firestore.instance.collection('favorites');
+  final CollectionReference currentUser =
+      Firestore.instance.collection('users');
 
-  Future updateFavorite(String one, String two, String three, String four, String five, int size) async {
-    return await favoriteList.document(uid).setData({
-      'one' : one,
-      'two': two,
-      'three': three,
-      'four': four,
-      'five': five,
-      'size' : size,
+  Future updateFavorite(
+      Map<String, String> bars, Map<String, String> drinks) async {
+//    return await favoriteList.document(uid).setData({
+//    'bars': bars,
+//    'drinks': drinks,
+//  });
+    return await currentUser.document(uid).collection('favorites').add({
+      'bars': bars,
+      'drinks': drinks,
+    });
+  }
+
+  Future updateUserEmail(String email) async {
+    return await currentUser.document(uid).setData({
+      'email': email,
     });
   }
 }
