@@ -38,4 +38,10 @@ class UserData {
       'email': email,
     });
   }
+
+  //get favorites stream
+
+  Stream<QuerySnapshot> get favorites {
+    return currentUser.snapshots();
+  }
 }

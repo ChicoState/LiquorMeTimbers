@@ -49,7 +49,13 @@ class BarList extends StatelessWidget {
           title: Text(
             bar.name,
           ),
-          trailing: SizedBox(),
+          trailing: new Column(
+                children: <Widget>[
+            new IconButton(
+            icon: new Icon(Icons.add_box),
+            onPressed: () {
+            }),
+          ]),
           children: <Widget>[
             Padding(
               padding: const EdgeInsets.only(left: 12.0, bottom: 12.0),
