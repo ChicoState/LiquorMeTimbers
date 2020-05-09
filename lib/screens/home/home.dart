@@ -32,7 +32,7 @@ class Home extends StatelessWidget {
                   Provider.of<HomeNotifier>(
                     context,
                     listen: false,
-                  ).setHomeDrinkPage();
+                  ).returnHomeDrinkPage();
                 },
               ),
             ),
