@@ -34,12 +34,14 @@ class HomeNotifier with ChangeNotifier {
   // update the drink view
   void updateDrinkPage(Widget widget) {
     _pageOptions.first = widget;
-    _visible = !_visible;
+    if (!visible) {
+      _visible = !_visible;
+    }
     notifyListeners();
   }
 
   // set the drink view back to default page
-  void setHomeDrinkPage() {
+  void returnHomeDrinkPage() {
     _pageOptions.first = DrinksPage();
     _visible = !_visible;
     notifyListeners();
