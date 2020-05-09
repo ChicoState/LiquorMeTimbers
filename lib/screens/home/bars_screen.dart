@@ -45,50 +45,55 @@ class BarList extends StatelessWidget {
       margin: EdgeInsets.all(8.0),
       child: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: ExpansionTile(
-          title: Text(
-            bar.name,
-          ),
-          trailing: SizedBox(),
-          children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.only(left: 12.0, bottom: 12.0),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
+        child: barExpansionTile(bar, hours, context, happy, address),
+      ),
+    );
+  }
+
+  ExpansionTile barExpansionTile(Bar bar, Hours hours, BuildContext context,
+      Hours happy, Address address) {
+    return ExpansionTile(
+      title: Text(
+        bar.name,
+      ),
+      trailing: SizedBox(),
+      children: <Widget>[
+        Padding(
+          padding: const EdgeInsets.only(left: 12.0, bottom: 12.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Row(
                 children: <Widget>[
-                  Row(
-                    children: <Widget>[
-                      displayCurrentHours(
-                        message: 'Hours',
-                        hours: hours,
-                        context: context,
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(
-                          left: 12.0,
-                        ),
-                        child: displayCurrentHours(
-                          message: 'Happy Hours',
-                          hours: happy,
-                          context: context,
-                        ),
-                      ),
-                    ],
+                  displayCurrentHours(
+                    message: 'Hours',
+                    hours: hours,
+                    context: context,
                   ),
                   Padding(
                     padding: const EdgeInsets.only(
-                      top: 12.0,
+                      left: 12.0,
                     ),
-                    child: Text('Address: ${address.street}, ${address.city}, '
-                        '${address.state} ${address.zip}'),
+                    child: displayCurrentHours(
+                      message: 'Happy Hours',
+                      hours: happy,
+                      context: context,
+                    ),
                   ),
                 ],
               ),
-            )
-          ],
-        ),
-      ),
+              Padding(
+                padding: const EdgeInsets.only(
+                  top: 12.0,
+                ),
+                child: Text('Address: ${address.street}, ${address.city}, '
+                    '${address.state} ${address.zip}'),
+              ),
+            ],
+          ),
+        )
+      ],
     );
   }
 
