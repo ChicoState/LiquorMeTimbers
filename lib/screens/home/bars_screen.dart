@@ -7,6 +7,7 @@ import 'package:flutter/widgets.dart';
 import 'package:intl/intl.dart';
 import 'package:liquor/modules/bar.dart';
 import 'package:liquor/services/db.dart';
+import 'package:liquor/utilities/constants.dart';
 import 'package:provider/provider.dart';
 
 class BarsPage extends StatelessWidget {
@@ -39,12 +40,12 @@ class BarList extends StatelessWidget {
 
     return Card(
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.all(Radius.circular(12.0)),
+        borderRadius: BorderRadius.all(Radius.circular(kCardRadius)),
       ),
-      elevation: 2,
-      margin: EdgeInsets.all(8.0),
+      elevation: kCardElevation,
+      margin: EdgeInsets.all(kCardMargin),
       child: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(kCardPadding),
         child: barExpansionTile(bar, hours, context, happy, address),
       ),
     );

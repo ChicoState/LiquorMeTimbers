@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:liquor/modules/bar.dart';
+import 'package:liquor/providers/home_notifier.dart';
+import 'package:liquor/screens/home/drinks/drinks_at_bar.dart';
 import 'package:liquor/services/db.dart';
+import 'package:liquor/utilities/constants.dart';
 import 'package:provider/provider.dart';
 
 class DrinksByBar extends StatelessWidget {
@@ -29,17 +32,18 @@ class DrinksByBarView extends StatelessWidget {
   Widget _buildListItem(BuildContext context, Bar bar) {
     return Card(
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.all(Radius.circular(12.0)),
+        borderRadius: BorderRadius.all(Radius.circular(kCardRadius)),
       ),
-      elevation: 2,
-      margin: EdgeInsets.all(8.0),
+      elevation: kCardElevation,
+      margin: EdgeInsets.all(kCardMargin),
       child: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(kCardPadding),
         child: ListTile(
           onTap: () {
-            // TODO create Widget that takes in a bar and displays its drinks
             print("Tapped");
-//        Provider.of<HomeNotifier>(context).updateDrinkPage(SomeWidget(bar),);
+            Provider.of<HomeNotifier>(context).updateDrinkPage(
+              DrinksAtBar(bar: bar),
+            );
           },
           title: Text(
             bar.name,
