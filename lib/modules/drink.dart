@@ -28,7 +28,7 @@ class Drink {
       favoriteCount: data['favorite_count'] ?? 0,
       happyHour: data['happy_hour'] ?? false,
       price: data['price'] ?? '',
-      category: data['Category'],
+      category: Category.fromMap(data['Category']),
       documentID: documentSnapshot.documentID,
     );
   }
