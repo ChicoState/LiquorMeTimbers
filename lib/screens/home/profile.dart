@@ -13,18 +13,28 @@ class _ProfileState extends State<Profile> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: RaisedButton(
-        child: Text(
-          'Logout',
+      child: Center(
+        child: Padding(
+          padding: const EdgeInsets.only(
+            bottom: 400.0,
+          ),
+          child: RaisedButton(
+            child: Padding(
+              padding: const EdgeInsets.all(18.0),
+              child: Text(
+                'Logout',
+              ),
+            ),
+            onPressed: () async {
+              // sign user out
+              await _auth.signOut();
+              // set selected page to Bars tab so user will be taken to this page
+              // when they log back in
+              Provider.of<HomeNotifier>(context, listen: false)
+                  .updateSelectedPage(1);
+            },
+          ),
         ),
-        onPressed: () async {
-          // sign user out
-          await _auth.signOut();
-          // set selected page to Bars tab so user will be taken to this page
-          // when they log back in
-          Provider.of<HomeNotifier>(context, listen: false)
-              .updateSelectedPage(1);
-        },
       ),
     );
   }
