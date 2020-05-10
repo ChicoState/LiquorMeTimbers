@@ -41,7 +41,7 @@ class DrinksByBarView extends StatelessWidget {
         child: ListTile(
           onTap: () {
             print("Tapped");
-            Provider.of<HomeNotifier>(context).updateDrinkPage(
+            Provider.of<HomeNotifier>(context, listen: false).updateDrinkPage(
               DrinksAtBar(bar: bar),
             );
           },
