@@ -5,8 +5,9 @@ class Bar {
   final Address address;
   final Hours hours;
   final Hours happyHours;
+  final Map drinks;
 
-  Bar({this.name, this.address, this.hours, this.happyHours});
+  Bar({this.name, this.address, this.hours, this.happyHours, this.drinks});
 
   factory Bar.fromFirestore(DocumentSnapshot documentSnapshot) {
     Map data = documentSnapshot.data;
@@ -16,6 +17,7 @@ class Bar {
       address: Address.fromMap(data['address']),
       hours: Hours.fromMap(data['hours']),
       happyHours: Hours.fromMap(data['happy_hours']),
+      drinks: data['drinks'],
     );
   }
 }
@@ -67,8 +69,7 @@ class Hours {
         Friday: data['Friday'] ?? '',
         Saturday: data['Saturday'] ?? '',
       );
-    }
-    catch (e){
+    } catch (e) {
       print(e);
       return Hours(
         Sunday: '',
