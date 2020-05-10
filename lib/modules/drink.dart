@@ -10,6 +10,7 @@ class Drink {
   final bool happyHour;
   final String price;
   final Category category;
+  final String documentID;
 
   Drink({
     this.name,
@@ -17,6 +18,7 @@ class Drink {
     this.happyHour,
     this.price,
     this.category,
+    this.documentID,
   });
 
   factory Drink.fromFirestore(DocumentSnapshot documentSnapshot) {
@@ -27,6 +29,7 @@ class Drink {
       happyHour: data['happy_hour'] ?? false,
       price: data['price'] ?? '',
       category: data['Category'],
+      documentID: documentSnapshot.documentID,
     );
   }
 }
