@@ -32,7 +32,9 @@ class DrinksByBarView extends StatelessWidget {
   Widget _buildListItem(BuildContext context, Bar bar) {
     return Card(
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.all(Radius.circular(kCardRadius)),
+        borderRadius: BorderRadius.all(
+          Radius.circular(kCardRadius),
+        ),
       ),
       elevation: kCardElevation,
       margin: EdgeInsets.all(kCardMargin),
@@ -41,8 +43,13 @@ class DrinksByBarView extends StatelessWidget {
         child: ListTile(
           onTap: () {
             print("Tapped");
-            Provider.of<HomeNotifier>(context, listen: false).updateDrinkPage(
-              DrinksAtBar(bar: bar),
+            Provider.of<HomeNotifier>(
+              context,
+              listen: false,
+            ).updateDrinkPage(
+              DrinksAtBar(
+                bar: bar,
+              ),
             );
           },
           title: Text(

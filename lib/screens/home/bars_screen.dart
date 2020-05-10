@@ -40,13 +40,21 @@ class BarList extends StatelessWidget {
 
     return Card(
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.all(Radius.circular(kCardRadius)),
+        borderRadius: BorderRadius.all(
+          Radius.circular(kCardRadius),
+        ),
       ),
       elevation: kCardElevation,
       margin: EdgeInsets.all(kCardMargin),
       child: Padding(
         padding: const EdgeInsets.all(kCardPadding),
-        child: barExpansionTile(bar, hours, context, happy, address),
+        child: barExpansionTile(
+          bar,
+          hours,
+          context,
+          happy,
+          address,
+        ),
       ),
     );
   }

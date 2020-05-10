@@ -65,7 +65,9 @@ class DrinksAtBarView extends StatelessWidget {
 
     return Card(
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.all(Radius.circular(kCardRadius)),
+        borderRadius: BorderRadius.all(
+          Radius.circular(kCardRadius),
+        ),
       ),
       elevation: kCardElevation,
       margin: EdgeInsets.all(kCardMargin),
