@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:liquor/services/auth.dart';
+import 'package:liquor/shared/loading.dart';
 
 ///
 /// this page is built with the aid of the following tutorial:
@@ -17,8 +18,10 @@ class SignIn extends StatefulWidget {
 }
 
 class _SignInState extends State<SignIn> {
+
   final AuthService _auth = AuthService();
   final _formKey = GlobalKey<FormState>();
+  bool loading = false;
 
   String email = '';
   String password = '';
@@ -26,7 +29,7 @@ class _SignInState extends State<SignIn> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return loading ? Loading() : Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
         backgroundColor: Colors.black,
@@ -119,14 +122,16 @@ class _SignInState extends State<SignIn> {
                 ),
                 onPressed: () async {
                   if (_formKey.currentState.validate()) {
+                    setState(() => loading = true);
                     dynamic result = await _auth.signInWithEmailAndPassword(
                       email,
                       password,
                     );
                     if (result == null) {
-                      setState(
-                        () => error = 'Username or Password Incorrect',
-                      );
+                      setState(() {
+                            error = 'Username or Password Incorrect';
+                            loading = false;
+                      });
                     }
                   }
                 },
@@ -140,7 +145,8 @@ class _SignInState extends State<SignIn> {
                   ),
                 ),
                 onPressed: () async {
-                  dynamic result = await _auth.signInAnon();
+                  setState(() => loading = true);
+                  await _auth.signInAnon();
                 }
               ),
               SizedBox(

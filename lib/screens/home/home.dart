@@ -84,10 +84,10 @@ class Home extends StatelessWidget {
               ),
               BottomNavigationBarItem(
                 icon: Icon(
-                  Icons.account_box,
+                  Icons.settings,
                 ),
                 title: Text(
-                  'Profile',
+                  'Account',
                   style: TextStyle(
                     color: Colors.white,
                   ),
