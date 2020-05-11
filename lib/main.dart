@@ -5,6 +5,7 @@ import 'package:liquor/services/auth.dart';
 import 'package:provider/provider.dart';
 
 import 'providers/home_notifier.dart';
+import 'package:flutter_test/flutter_test.dart';
 
 void main() => runApp(LiquorMeTimbers());
 
