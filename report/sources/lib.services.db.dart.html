@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta content="text/html;charset=UTF-8" http-equiv="Content-Type">
+    <title>Dart-CoCo: Reporting tools for Dart</title>
+        <link rel="stylesheet" type="text/css" href="../resources/main.css" />
+    <script type="text/javascript" src="../resources/report.js"></script>
+          <link rel="stylesheet" type="text/css" href="../resources/source.css" />
+      <script type="text/javascript" src="../resources/source.js"></script>
+      <link rel="stylesheet" type="text/css" href="lib.services.db.dart.css" />
+      
+</head>
+<body onload="window['PR_TAB_WIDTH']=4;">
+<div class="breadcrumb" id="breadcrumb">
+        <a class="el_report" href="../index.html">Dart-CoCo</a>
+    >
+    <a class="el_package" href="../packages/lib.services.html">lib.services</a>
+    >
+    <a class="el_class" href="../classes/lib.services.db.dart.html">db</a> 
+    >
+    <a class="el_source" href="../sources/lib.services.db.dart.html">db.dart</a> 
+    
+</div>
+<h1>Dart-CoCo</h1>
+
+<pre class="source lang-dart linenums"><ol class="linenums"><li class="L0"><span class="pln"></span><span class="kwd">import</span><span class="pln"> </span><span class="str">&apos;package:cloud_firestore/cloud_firestore.dart&apos;</span><span class="pln">;</span></li><li class="L1"><span class="pln"></span><span class="kwd">import</span><span class="pln"> </span><span class="str">&apos;package:liquor/modules/bar.dart&apos;</span><span class="pln">;</span></li><li class="L2"></li><li class="L3"><span class="pln"></span><span class="kwd">class</span><span class="pln"> DatabaseService {</span></li><li class="L4"><span class="pln">  </span><span class="kwd">final </span><span class="pln">Firestore _db = Firestore.instance;</span></li><li class="L5"></li><li class="L6"><span class="com">  /// Get a stream of a list of bars</span></li><li class="L7"><span class="pln">  Stream&lt;List&lt;Bar&gt;&gt; barStream() {</span></li><li class="L8"><span class="pln">    </span><span class="kwd">return </span><span class="pln">_db.collection(</span><span class="str">&apos;bars&apos;</span><span class="pln">).snapshots().map(</span></li><li class="L9"><span class="pln">        (list) =&gt; list.documents.map((doc) =&gt; Bar.fromFirestore(doc)).toList());</span></li><li class="L10"><span class="pln">  }</span></li><li class="L11"><span class="pln">}</span></li><li class="L12"></li></ol></pre>
+
+<div class="mallbery-ext-normal"
+     style="z-index: 2147483647 !important; text-transform: none !important; position: fixed;"></div>
+<div class="mallbery-caa"
+     style="z-index: 2147483647 !important; text-transform: none !important; position: fixed;"></div>
+</body>
+</html>
